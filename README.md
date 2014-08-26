@@ -8,7 +8,7 @@ Installs the Virtualbox Guest Additions
 
 ## Attributes
 
-* N/A
+* [default](attributes/default.rb)
 
 ## Recipes
 
