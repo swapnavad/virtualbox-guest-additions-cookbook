@@ -27,6 +27,7 @@ directory node[:virtualbox_guest_additions][:mount_point] do
   group "root"
   mode "0755"
   action :create
+  not_if { ::File.directory?(node[:virtualbox_guest_additions][:mount_point]) }
 end
 
 # mount the iso
@@ -35,6 +36,7 @@ mount node[:virtualbox_guest_additions][:mount_point] do
   device node[:virtualbox_guest_additions][:device_path]
   fstype "iso9660"
   options "loop"
+  only_if { Dir["#{node[:virtualbox_guest_additions][:mount_point]}/*"].empty? }
 end
 
 # The VBoxLinuxAdditions script returns 1 even though it doesn't report any errors
