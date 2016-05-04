@@ -43,7 +43,7 @@ end
 # both in the output and in the logs. After running the script, the additions
 # seem to be properly installed anyway... This is the best way to determine if 
 # there were any issues with the installation as this is probably a bug.
-execute "install vbox guest additions" do
+execute "install vbox guest additions v#{node[:virtualbox_guest_additions][:virtualbox_version]}" do
   command "! sh #{node[:virtualbox_guest_additions][:mount_point]}/VBoxLinuxAdditions.run | grep -E -i 'error|fail'"
 end
 
