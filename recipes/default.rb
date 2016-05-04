@@ -18,7 +18,7 @@ end
 
 # Get additions iso file
 remote_file "#{Chef::Config[:file_cache_path]}/vboxAdditions.iso" do
-  source node[:virtualbox_guest_additions][:iso_uri]
+  source "http://download.virtualbox.org/virtualbox/#{node[:virtualbox_guest_additions][:virtualbox_version]}/VBoxGuestAdditions_#{node[:virtualbox_guest_additions][:virtualbox_version]}.iso"
 end
 
 # Create the mount point
