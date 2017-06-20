@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Set the version of chef to install using the vagrant-omnibus plugin
 
 
-  config.omnibus.chef_version = :latest
+  config.omnibus.chef_version = "12.17.44"
 
 
 
